@@ -1,5 +1,6 @@
 let searchInput = document.getElementById("searchYourLocation");
 let countryData = document.getElementById("countryData");
+let searchBtn   = document.getElementById('searchBtn')
 
 let timing1 =`<img id="img1" src="https://cdn.weatherapi.com/weather/64x64/night/113.png" alt="" width="90">`
 let timing2 =`<img id="img2" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="48">`
@@ -140,10 +141,12 @@ async function getTemp(index) {
 }
 
 console.log(currentTime);
-getTemp('cairo')
 
-searchYourLocation.addEventListener('input', async function(){
-  await  getTemp(searchYourLocation.value.toLowerCase());
+getTemp('cairo');
+
+
+searchBtn.addEventListener('click', async function(){
+  await getTemp(searchYourLocation.value.toLowerCase());
 })
 
 function currentTime12() {
@@ -174,4 +177,3 @@ function currentTime12() {
 
 
 
-getTemp('cairo');
