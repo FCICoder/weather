@@ -1,0 +1,36 @@
+body:not(body:has(:target)) li a[href="#home"]::before,
+body:has(#home:target) li a[href="#home"]::before,
+body:has(#about:target) li a[href="#about"]::before,
+body:has(#about:target) li a[href="#serv"]::before,
+body:has(#porto:target) li a[href="#porto"]::before,
+body:has(#blog:target) li a[href="#blog"]::before,
+body:has(#contact:target) li a[href="#contact"]::before
+{
+    width: 80%;
+}
+ 
+ nav ul li a::before{
+    content: "";
+    position: absolute; 
+     width: 0;   
+    left: 11%;
+    height: 0px;
+    top: 80%;
+    background-color: #eff0f2;
+    bottom: 0px;
+    transition: all .5s ease;
+ }
+
+
+ nav li:hover a:before, body:not(body:has(:target)) li a[href="#home"]::before,
+ body:has(#home:target) li a[href="#home"]::before,
+ body:has(#about:target) li a[href="#about"]::before,
+ body:has(#serv:target) li a[href="#serv"]::before,
+ body:has(#porto:target) li a[href="#porto"]::before,
+ body:has(#blog:target) li a[href="#blog"]::before,
+ body:has(#contact:target) li a[href="#contact"]::before {
+    visibility: visible;
+    width: 80%;
+
+    height: 3px;
+}

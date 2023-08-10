@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather.Api</title>
+    <link rel="icon" href="./images/logo.png">
+    <link rel="stylesheet" href="./bootstrap-5.3.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link  rel="stylesheet" href="./css/style.css" >
+    
+    
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container">
+              <a class="navbar-brand w-25 d-flex position-relative" href="#"><div class="img me-2">
+                <img src="./images/logo.png"/></div><h1 class="fs-5 text-white">Weather</h1> 
+                <p class="position-absolute top-50 text-white mt-2">tagline goes here
+                </p></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 col-8 justify-content-between">
+                  <li class="nav-item">
+                    <a class="nav-link active " aria-current="page" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="#news">News</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="#live">Live cameras
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="#photos">Photos
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </div>
+
+    <div class="input w-100 m-auto d-flex">
+        <input id="searchYourLocation"   type="text" class="position-relative w-75  form-control rounded-pill  m-auto mt-4 p-3 text-white bg-dark  border-0 shadow-none" placeholder="Find Your Location">
+        <button id="searchBtn" class="btn  rounded-pill p-4 shadow-none d-flex align-items-center text-light justify-content-center" >Find</button>
+        <div id="clock" class="rounded-pill translate-middle-x d-flex align-items-center justify-content-center "></div>
+      
+    </div>
+
+      <section class="weatherInfo mb-5">
+        <div class="container p-0   rounded-4">
+         <div id="countryData" class="row g-2 ">
+      
+          </div>
+         </div>
+      </section>
+
+<!-- <footer class="bg-white m-0 p-0 ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="input  m-auto d-flex">
+          <input id="subscrib" type="text" class="border-0 shadow-none position-relative  form-control rounded-pill  m-auto mt-4 p-3 text-white border-0" placeholder="Enter Your Email to subscribe ">
+          <button id="subscribeBtn" class="btn btn-primary rounded-pill p-4 border-0 mb-3 shadow-none " >Subscribe</button>
+        </div>
+      <p class="text-dark">Copyright 2014 Hamza. Designed by Hambozo. All rights reserved</p>
+      </div>
+      <div class="col-md-4 p-5">
+       <p class="fw-bolder fs-4">Contact With Us</p>
+       <div class="links d-flex justify-content-between p-3">
+        <span><a class="text-decoration-none" href="#"><i class="fa-brands fa-twitter fs-3  text-muted"></i></a></span>
+        <span><a class="text-decoration-none" href="#"><i class="fa-brands fa-facebook fs-3  text-muted"></i></a></span>
+        <span><a class="text-decoration-none" href="#"><i class="fa-brands fa-instagram fs-3 text-muted"></i></a></span>
+        <span><a class="text-decoration-none" href="#"><i class="fa-brands fa-behance fs-3 text-muted"></i></a></span>
+       </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+<footer>
+    <div class="input2 w-100 m-auto d-flex  pt-5">
+        <input  type="text" class="position-relative w-50  form-control rounded-pill mt-4 pt-5 text-white bg-dark  border-0 shadow-none" placeholder="Find Your Location">
+        <button id="searchBtn2" class="btn  rounded-pill p-4 shadow-none d-flex align-items-center text-light justify-content-center" >Subsripe</button>
+        <div class="links">
+            <a class="text-decoration-none" href="#"><i class="fa-brands fa-facebook-f fs-4 text-info"></i></a>
+            <a class="text-decoration-none " href="#"><i class="fa-brands fa-twitter fs-4  text-info"></i></a>
+            <a class="text-decoration-none" href="#"><i class="fa-brands fa-google-plus fs-4 text-info"></i></a>
+            <a class="text-decoration-none" href="#"><i class="fa-brands fa-pinterest  fs-4 text-info"></i></a>
+           </div>
+           <br/>
+
+    </div>
+    <p id="pra" class=" text-light ">Copyright 2023 Mahmoud. Designed by Hoppy. All rights reserved</p>
+
+</footer>
+
+ 
+      <script src="./bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+       <script src="index.js"></script>
+</body>
+</html>
