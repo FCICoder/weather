@@ -1,36 +1,36 @@
 let searchInput = document.getElementById("searchYourLocation");
 let countryData = document.getElementById("countryData");
-let searchBtn   = document.getElementById('searchBtn')
+let searchBtn = document.getElementById('searchBtn')
 
-let timing1 =`<img id="img1" src="https://cdn.weatherapi.com/weather/64x64/night/113.png" alt="" width="90">`
-let timing2 =`<img id="img2" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="48">`
+let timing1 = `<img id="img1" src="https://cdn.weatherapi.com/weather/64x64/night/113.png" alt="" width="90">`
+let timing2 = `<img id="img2" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" width="48">`
 
 console.log(timing1);
-let dataList =[];
+let dataList = [];
 let currentTime;
 async function getTemp(index) {
-        let temp = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=823dac18a67e4b0a980221005230208&q=${index}&days=3&aqi=no&alerts=no`);
-        let tempData =await temp.json();
+  let temp = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=823dac18a67e4b0a980221005230208&q=${index}&days=3&aqi=no&alerts=no`);
+  let tempData = await temp.json();
 
-        dataList =  tempData;
-        let today = new Date(dataList.location.localtime);
-        let weekday = new Date(dataList.location.localtime).toLocaleDateString('en-EN', { weekday: 'long' });
-        let monthGet = new Date(dataList.location.localtime).toLocaleDateString('en-us', {day:"numeric",month:"long"});
-        let days = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"];
-         let nextDay = days[today.getDay() +1];
-         let dayAfterTommoro = days[today.getDay() +2];
-         console.log(dayAfterTommoro);
-         if(dayAfterTommoro === undefined || nextDay === undefined){
-         dayAfterTommoro = days[0]
-         }
-         console.log(dayAfterTommoro);
-         let date = new Date(); 
-        let hh = date.getHours();
-        let mm = date.getMinutes();
-        let ss = date.getSeconds();
-        console.log(hh);
-         if(hh>=7&&hh<19){
-            let trs = `
+  dataList = tempData;
+  let today = new Date(dataList.location.localtime);
+  let weekday = new Date(dataList.location.localtime).toLocaleDateString('en-EN', { weekday: 'long' });
+  let monthGet = new Date(dataList.location.localtime).toLocaleDateString('en-us', { day: "numeric", month: "long" });
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let nextDay = days[today.getDay() + 1];
+  let dayAfterTommoro = days[today.getDay() + 2];
+  console.log(dayAfterTommoro);
+  if (dayAfterTommoro === undefined || nextDay === undefined) {
+    dayAfterTommoro = days[0]
+  }
+  console.log(dayAfterTommoro);
+  let date = new Date();
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  console.log(hh);
+  if (hh >= 7 && hh < 19) {
+    let trs = `
         <div id="item" class="col-md-4 bg-tranparnt ">
         
         <div class="weatherInfo-item ">
@@ -80,10 +80,44 @@ async function getTemp(index) {
           </div>
         </div>
         `
-        
-        countryData.innerHTML = trs;
-    }else if(hh>=19&&hh<7){
-            let trs = `
+
+    countryData.innerHTML = trs;
+    function tr() {
+      
+      let bh = document.getElementsByClassName('weatherInfo-item')[0];
+      let bh1 = document.getElementsByClassName('weatherInfo-item')[1];
+      let bh2 = document.getElementsByClassName('weatherInfo-item')[2];
+
+       if(bh.style.boxShadow != 'none'){
+        bh.style.cssText = 'box-shadow : none'
+      }else {
+        bh.style.cssText = 'box-shadow :5px 5px 20px 5px rgba(17, 109, 247, 0.7)'
+
+      }
+      if(bh1.style.boxShadow != 'none'){
+        bh1.style.cssText = 'box-shadow : none'
+      }else {
+        bh1.style.cssText = 'box-shadow :5px 5px 20px 5px rgba(17, 109, 247, 0.7)'
+  
+      }
+      if(bh2.style.boxShadow != 'none'){
+        bh2.style.cssText = 'box-shadow : none'
+      }else {
+        bh2.style.cssText = 'box-shadow :5px 5px 20px 5px rgba(17, 109, 247, 0.7)'
+     
+      }
+    }
+   
+    
+
+    
+
+    setInterval(tr, 1000)
+
+
+
+  } else if (hh >= 19 && hh < 7) {
+    let trs = `
             <div id="item" class="col-md-4 bg-tranparnt ">
             <div>${currentTime12()}</div>
             <div class="weatherInfo-item ">
@@ -133,11 +167,11 @@ async function getTemp(index) {
               </div>
             </div>
             `
-            countryData.innerHTML = trs;
-         }
-       
-        
-       
+    countryData.innerHTML = trs;
+  }
+
+
+
 }
 
 console.log(currentTime);
@@ -145,35 +179,41 @@ console.log(currentTime);
 getTemp('cairo');
 
 
-searchBtn.addEventListener('click', async function(){
+searchBtn.addEventListener('click', async function () {
   await getTemp(searchYourLocation.value.toLowerCase());
 })
 
 function currentTime12() {
-    let date = new Date(); 
-    let hh = date.getHours();
-    let mm = date.getMinutes();
-    let ss = date.getSeconds();
-    let session = "AM";
-  
-    if(hh == 0){
-        hh = 12;
-    }
-    if(hh > 12){
-        hh = hh - 12;
-        session = "PM";
-     }
-  
-     hh = (hh < 10) ? "0" + hh : hh;
-     mm = (mm < 10) ? "0" + mm : mm;
-     ss = (ss < 10) ? "0" + ss : ss;
-      
-     let time = hh + ":" + mm + ":" + ss + " " + session;
-     
-     document.getElementById('clock').innerHTML= time; 
-    }
-    setInterval(currentTime12,1000)
-  
+  let date = new Date();
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "AM";
+
+  if (hh == 0) {
+    hh = 12;
+  }
+  if (hh > 12) {
+    hh = hh - 12;
+    session = "PM";
+  }
+
+  hh = (hh < 10) ? "0" + hh : hh;
+  mm = (mm < 10) ? "0" + mm : mm;
+  ss = (ss < 10) ? "0" + ss : ss;
+
+  let time = hh + ":" + mm + ":" + ss + " " + session;
+
+  document.getElementById('clock').innerHTML = time;
+}
+setInterval(currentTime12, 1000)
+
+
+
+
+
+
+
 
 
 
