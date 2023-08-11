@@ -107,15 +107,7 @@ async function getTemp(index) {
      
       }
     }
-   
-    
-
-    
-
     setInterval(tr, 1000)
-
-
-
   } else if (hh >= 19 && hh < 7) {
     let trs = `
             <div id="item" class="col-md-4 bg-tranparnt ">
@@ -168,10 +160,33 @@ async function getTemp(index) {
             </div>
             `
     countryData.innerHTML = trs;
+    function tr() {
+      
+      let bh = document.getElementsByClassName('weatherInfo-item')[0];
+      let bh1 = document.getElementsByClassName('weatherInfo-item')[1];
+      let bh2 = document.getElementsByClassName('weatherInfo-item')[2];
+
+       if(bh.style.boxShadow != 'none'){
+        bh.style.cssText = 'box-shadow : none'
+      }else {
+        bh.style.cssText = 'box-shadow :5px 5px 20px 5px rgba(17, 109, 247, 0.7)'
+
+      }
+      if(bh1.style.boxShadow != 'none'){
+        bh1.style.cssText = 'box-shadow : none'
+      }else {
+        bh1.style.cssText = 'box-shadow :5px 5px 20px 5px rgba(17, 109, 247, 0.7)'
+  
+      }
+      if(bh2.style.boxShadow != 'none'){
+        bh2.style.cssText = 'box-shadow : none'
+      }else {
+        bh2.style.cssText = 'box-shadow :5px 5px 20px 5px rgba(17, 109, 247, 0.7)'
+     
+      }
+    }
+    setInterval(tr, 1000)
   }
-
-
-
 }
 
 console.log(currentTime);
